@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Front Page</title>
+	<link rel="stylesheet"  href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, intial-scale=1 ">
+</head>
+<body >
+  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+		<div class="container">
+  <a class="navbar-brand" href="index.html">Let's Go</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" class="cool-link" href="index.html" >Point of Interest<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="restaurant.html">Restaurants</a>
+      </li>
+      <li class="nav-item">
+        <b><a class="nav-link disabled" href="#">Schools</a></b>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <b> JOIN</b>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Login</a>
+          <a class="dropdown-item" href="#">Sign Up</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+     
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+</div>
+
+<div class="myimg">
+<div class="container">
+<div class="rows">
+  <div class="cols-xs-6 cols-md-6">
+<form>
+  <input type="text"  id="searchbar" name="search" placeholder="   Search a destination, attraction, or activity... ">
+</form>
+</div>
+</div>
+</div>
+</div>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="cols-md-6 cols-xs-6">
+     
+    <div class=firstContainer>
+<h3>Want to explore Something?</h3>
+<p>Let's Go provide you multiple activities to do it helps you to explore <br>
+Unknown places hotels and Institutions of your desire location.</p>
+</div>
+<div class=firstContainer>
+<h3>Join our community</h3>
+<p>Log in to find great places to Visit,hotels and Institutions<br>to explore you can also join community for Collaboration</p>
+</div>
+</div>
+   </div> 
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="cols-md-6 cols-xs-6">
+        <br><br>
+        <h3>Popular Destinations</h3>
+        <br>
+<div class=picsContainer>
+  <h5>Marrakech, Morocco</h5>
+  <img src="angkor-wat.jpg" width="300" height="200">
+
+</div>
+<div class=picsContainer>
+  <h5>Marrakech, Morocco</h5>
+  <img src="angkor-wat.jpg" width="300" height="200">
+
+</div>
+<div class=picsContainer>
+  <h5>Marrakech, Morocco</h5>
+  <img src="angkor-wat.jpg" width="300" height="200">
+
+</div>
+
+      </div>
+    </div>
+  </div>
+ <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoJuVje9c3wQAc6Le3Pxnyw0QnbuoUe6M&callback=initMap">
+    </script>
+ <script>
+  var map=new google.maps.Map(document.getElementById('map-canvas'),{
+    center:{
+      lat: 27.72,
+      lng: 85.36
+    },
+    zoom:15
+  });
+var marker=new google.maps.Marker({
+  position:{
+    lat:27.72,
+    lng:85.36
+  },
+  map:map,
+  draggable:true
+});
+
+var searchbox=new google.maps.places.Searchbox(document.getElementById('searchbar'));
+google.maps.event.addListener(searchBox,'places_changed',function()
+{
+  var places=searchBox.getPlaces();
+  var bounds= new google.maps.LatLngBounds();
+  var i,place;
+
+    for(i=0; place=places[i];i++)
+    {
+      //console.log(place.geometry.location);
+      bounds.extend(place.geometry.location);
+      marker.setPostion(place.geometry.location);
+    }
+    map.fitBounds(bounds);
+    map.setZoom(15);
+
+});
+</script>
+
+</body>
+
+
+</html>
