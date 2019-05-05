@@ -394,8 +394,7 @@ Restaurant then you can search the restaurent and find quality products.</p>
         }
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAB4Soeym-mrh-pJk59oXAzXsSrHoA7lpo&libraries=places&callback=initMap"
-        async defer>
+    <!--Add GOOGLE Map Api Script here-->
 </script>
  
   
